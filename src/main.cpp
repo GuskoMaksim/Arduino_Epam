@@ -21,14 +21,13 @@ void updateWeatherRoom()
     temperature = m_weather->GetTemperature();
 #endif
 #if MODULE_WEATHER_HUMIDITY == ON
-    temperature = m_weather->GetHumidity();
+    humidity = m_weather->GetHumidity();
 #endif
 #if MODULE_WEATHER_PRESSURE == ON
     pressure = m_weather->GetPressure();
 #endif
   }
 }
-
 #endif
 
 void setup()
