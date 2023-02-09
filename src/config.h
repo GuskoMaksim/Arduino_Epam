@@ -9,7 +9,7 @@
 #define NON -1
 
 //---------Configuration for modules--------
-#define MODULE_WEATHER ON
+#define MODULE_WEATHER OFF
 #define MODULE_LSD OFF
 //-------End configuration for modules------
 
@@ -17,9 +17,9 @@
 #if MODULE_WEATHER == ON
 
 //----Configuration of measurement parameters----
-#define MODULE_WEATHER_TEMPERATURE ON
-#define MODULE_WEATHER_HUMIDITY OFF
-#define MODULE_WEATHER_PRESSURE OFF
+#define MODULE_WEATHER_TEMPERATURE NON
+#define MODULE_WEATHER_HUMIDITY NON
+#define MODULE_WEATHER_PRESSURE NON
 #define MODULE_WEATHER_TIME 5000
 
 #define BME_280 1
@@ -31,7 +31,7 @@
 #define AM_2301 21
 
 //----Sensor selection----
-#define MODULE_WEATHER_TYPE DHT_11
+#define MODULE_WEATHER_TYPE NON
 #if MODULE_WEATHER_TYPE == NON
 #error "Select the sensor of weather!"
 #endif

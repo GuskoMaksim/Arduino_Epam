@@ -46,20 +46,3 @@ void loop()
   updateWeatherRoom();
 #endif
 }
-
-/*
-#if MODEULE_LCD_INCLUDE == ON
-#include <LiquidCrystal_I2C.h> //by Frank de Brabander
-#endif
-
-
-#if MODEULE_LCD_INCLUDE == ON
-#if MODEULE_LCD_TYPE == LCD1602
-  Serial.print("LCD1602 added to the device!");
-#endif
-#if MODEULE_LCD_TYPE == LCD2004
-  Serial.print("LCD2004 added to the device!");
-#endif
-#endif
-
-*/
