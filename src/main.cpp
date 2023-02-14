@@ -1,38 +1,19 @@
-#include "config.h"
+#include <Arduino.h>
+#include "SensorBME280.h"
+#include "SensorDHTgroup.h"
 
-#if MODULE_WEATHER == ON
-#include "moduleWeather.h"
-moduleWeather *m_weather;
-int16_t temperature = 0;
-int16_t humidity = 0;
-int16_t pressure = 0;
-
-void updateWeatherRoom()
-{
-  if (m_weather->isReady())
-  {
-    temperature = m_weather->GetTemperature();
-    humidity = m_weather->GetHumidity();
-    pressure = m_weather->GetPressure();
-    Serial.println(temperature);
-    Serial.println(humidity);
-    Serial.println(pressure);
-  }
-}
-#endif
+constexpr uint32_t update_sensor = 5000;
+Sensor *module_weather;
 
 void setup()
 {
   Serial.begin(9600);
   Serial.println("Start");
-#if MODULE_WEATHER == ON
-  m_weather = new moduleWeather();
-#endif
+  module_weather = new SensorBME280(update_sensor);
 }
 
 void loop()
 {
-#if MODULE_WEATHER == ON
-  updateWeatherRoom();
-#endif
+  module_weather->Upadate();
+  module_weather->Serial_print_data();
 }
