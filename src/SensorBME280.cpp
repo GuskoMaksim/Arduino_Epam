@@ -1,19 +1,16 @@
 #include "SensorBME280.h"
 
-SensorBME280::SensorBME280(uint32_t update_sensor)
+SensorBME280::SensorBME280()
 {
-    if (!BME280.begin(module_adress_))
+    if (!BME280.begin(module_address_))
         Serial.println("Error!");
     else
         Serial.println("BME280 module added to the device!");
 };
 
-void SensorBME280::Upadate()
+void SensorBME280::Update()
 {
-    if (IsReady())
-    {
-        temperature_ = BME280.readTemperature();
-        pressure_ = BME280.readPressure() / mmColumn_;
-        humidity_ = BME280.readHumidity();
-    }
+    temperature_ = BME280.readTemperature();
+    pressure_ = BME280.readPressure() / mmColumn_;
+    humidity_ = BME280.readHumidity();
 };

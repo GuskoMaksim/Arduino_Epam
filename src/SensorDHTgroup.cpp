@@ -1,6 +1,6 @@
 #include "SensorDHTgroup.h"
 
-SensorDHTgroup::SensorDHTgroup(uint32_t update_sensor)
+SensorDHTgroup::SensorDHTgroup()
 {
     dht = new DHT(module_type_, module_pin_);
     dht->begin();
@@ -12,12 +12,9 @@ SensorDHTgroup::~SensorDHTgroup()
     delete dht;
 };
 
-void SensorDHTgroup::Upadate()
+void SensorDHTgroup::Update()
 {
-    if (IsReady())
-    {
-        temperature_ = dht->readTemperature();
-        pressure_ = 0;
-        humidity_ = dht->readHumidity();
-    }
+    temperature_ = dht->readTemperature();
+    pressure_ = 0;
+    humidity_ = dht->readHumidity();
 };
